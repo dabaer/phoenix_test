@@ -170,7 +170,7 @@ defimpl PhoenixTest.Driver, for: PhoenixTest.Live do
     })
   end
 
-  def submit_form(session, selector, form_data) do
+  def submit_form(session, selector, form_data, render_submit_args \\ %{}) do
     form_element =
       session
       |> render_html()
@@ -180,7 +180,7 @@ defimpl PhoenixTest.Driver, for: PhoenixTest.Live do
       phx_submit_form?(form_element) ->
         session.view
         |> form(selector, form_data)
-        |> render_submit()
+        |> render_submit(render_submit_args)
         |> maybe_redirect(session)
 
       action_form?(form_element) ->

@@ -29,6 +29,7 @@ defmodule PhoenixTest.IndexLive do
     <form id="email-form" phx-change="validate-email" phx-submit="save-form">
       <label for="email">Email</label>
       <input id="email" name="email" value={assigns[:email]} />
+      <input id="secret" name="secret" type="hidden" value="" />
       <button>Save</button>
     </form>
     <button phx-click="reset-email-form">Reset</button>

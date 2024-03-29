@@ -285,6 +285,13 @@ defmodule PhoenixTest do
   defdelegate submit_form(session, selector, data), to: Driver
 
   @doc """
+  Submits the form with arguments passed to `render_submit`.
+
+  See `submit_form/3` for more details.
+  """
+  defdelegate submit_form(session, selector, data, render_submit_args), to: Driver
+
+  @doc """
   Open the default browser to display current HTML of `session`.
 
   ## Examples

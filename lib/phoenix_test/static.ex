@@ -175,7 +175,7 @@ defimpl PhoenixTest.Driver, for: PhoenixTest.Static do
     |> PhoenixTest.Static.put_private(:active_form, active_form)
   end
 
-  def submit_form(session, selector, form_data) do
+  def submit_form(session, selector, form_data, _render_submit_args \\ nil) do
     session
     |> fill_form(selector, form_data)
     |> submit_active_form()

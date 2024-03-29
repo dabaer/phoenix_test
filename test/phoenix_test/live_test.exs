@@ -424,6 +424,15 @@ defmodule PhoenixTest.LiveTest do
     end
   end
 
+  describe "submit_form/4" do
+    test "submits a form via phx-submit", %{conn: conn} do
+      conn
+      |> visit("/live/index")
+      |> submit_form("#email-form", %{email: "some@example.com"}, %{secret: "12345"})
+      |> assert_has("#form-data", text: "secret: 12345")
+    end
+  end
+
   describe "open_browser" do
     setup do
       open_fun = fn view ->
